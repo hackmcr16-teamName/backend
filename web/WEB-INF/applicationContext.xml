@@ -5,7 +5,7 @@
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="interestService" class="com.hackmanchester.backend.service.InterestServiceImpl" />
-    <bean id="interestRepo" class="com.hackmanchester.backend.repo.InterestRepoImpl">
+    <bean id="interestRepo" class="com.hackmanchester.backend.repo.impl.InterestRepoImpl">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
