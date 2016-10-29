@@ -1,4 +1,4 @@
-package com.hackmanchester.backend.repo.impl;
+package com.hackmanchester.backend.repo;
 
 /**
  * Created by tony on 29/10/2016.
