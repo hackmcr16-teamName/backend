@@ -54,12 +54,72 @@ public class InterestRepoImpl implements InterestRepo {
 
     public Interest getInterest(int id) {
 
+        Interest intr = null;
 
-        return null;
+        String sql = "SELECT *" +
+                "FROM tblInterest WHERE idInterest = ?";
+
+        Connection conn = null;
+
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                intr = new Interest(id, rs.getString("name"));
+            }
+            rs.close();
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+        return intr;
     }
 
     public List<Interest> getAllInterest() {
-        return null;
+
+        List<Interest> intrList = null;
+
+        String sql = "SELECT *" +
+                     "FROM tblInterest";
+
+        Connection conn = null;
+
+        try{
+            conn = dataSource.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                intrList.add(new Interest(rs.getInt("idInterest"), rs.getString("name")));
+            }
+            rs.close();
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return intrList;
     }
 
     public void deleteInterest(int id) {
