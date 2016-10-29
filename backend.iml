@@ -31,10 +31,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.30" level="application_server_libraries" />
-    <orderEntry type="library" name="Spring-4.3.3.RELEASE" level="project" />
-    <orderEntry type="library" name="Spring MVC-4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.0.30" level="application_server_libraries" />
+    <orderEntry type="library" exported="" name="Spring-4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Spring MVC-4.3.3.RELEASE" level="project" />
   </component>
 </module>
