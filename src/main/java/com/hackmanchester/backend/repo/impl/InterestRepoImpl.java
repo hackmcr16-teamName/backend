@@ -122,11 +122,58 @@ public class InterestRepoImpl implements InterestRepo {
         return intrList;
     }
 
-    public void deleteInterest(int id) {
+        public void deleteInterest(int id) {
+
+            Connection conn = null;
+            String sql = "DELETE FROM tblInterest " +
+                         "WHERE idInterest = ?";
+
+        try{
+            conn = dataSource.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,id);
+            ps.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
     }
 
     public void updateInterest(Interest interest) {
+
+        Connection conn = null;
+        String sql = "UPDATE tblInsert " +
+                     "SET name = ?" +
+                     "WHERE idInsert =? ";
+
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,interest.getName());
+            ps.setInt(2,interest.getInterestID());
+            ps.executeQuery();
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
 
     }
 }
