@@ -1,4 +1,4 @@
-package com.hackmanchester.backend.controller;
+package com.hackmanchester.backend.model;
 
 /**
  * Created by ben on 29/10/16.
