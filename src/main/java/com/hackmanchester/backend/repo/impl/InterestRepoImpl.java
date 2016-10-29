@@ -7,13 +7,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import javax.sql.DataSource;
 
 
 /**
  * Created by ben on 29/10/16.
  */
-public class InterestImpl implements InterestRepo {
+public class InterestRepoImpl implements InterestRepo {
 
     private DataSource dataSource;
 
@@ -57,7 +58,11 @@ public class InterestImpl implements InterestRepo {
         return null;
     }
 
-    public void deleterInterest(int id) {
+    public List<Interest> getAllInterest() {
+        return null;
+    }
+
+    public void deleteInterest(int id) {
 
     }
 
