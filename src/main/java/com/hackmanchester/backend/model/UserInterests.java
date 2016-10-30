@@ -11,18 +11,20 @@ public class UserInterests
     private String telephone;
     private List<Interest> interests;
     private String base64Image;
+    private int branchID;
 
     public UserInterests()
     {
 
     }
 
-    public UserInterests(String name, String telephone, List<Interest> interests, String base64Image)
+    public UserInterests(String name, String telephone, List<Interest> interests, String base64Image, int branchID)
     {
         this.name = name;
         this.telephone = telephone;
         this.interests = interests;
         this.base64Image = base64Image;
+        this.branchID = branchID;
     }
 
     public String getName()
@@ -63,5 +65,15 @@ public class UserInterests
     public void setBase64Image(String base64Image)
     {
         this.base64Image = base64Image;
+    }
+
+    public int getBranchID()
+    {
+        return branchID;
+    }
+
+    public void setBranchID(int branchID)
+    {
+        this.branchID = branchID;
     }
 }

@@ -1,21 +1,26 @@
 package com.hackmanchester.backend.model;
 
-import java.util.List;
-
 /**
  * Created by ben on 29/10/16.
  */
 public class User {
 
     private int userID, branchID;
-    private String firstName, surname, telNo;
+    private String name, telNo, base64Image;
 
-    public User(int userID, String firstName, String surname, String telNo, int branchID) {
+    public User(int userID, String name, String telNo, int branchID) {
         this.userID = userID;
-        this.firstName = firstName;
-        this.surname = surname;
+        this.name = name;
         this.telNo = telNo;
         this.branchID = branchID;
+    }
+
+    public User(int userID, String name, String telNo, int branchID, String base64Image) {
+        this.userID = userID;
+        this.name = name;
+        this.telNo = telNo;
+        this.branchID = branchID;
+        this.base64Image = base64Image;
     }
 
     public User() {}
@@ -36,20 +41,13 @@ public class User {
         this.branchID = branchID;
     }
 
-    public String getFirstName() {
-        return firstName;
+
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTelNo() {
@@ -58,5 +56,15 @@ public class User {
 
     public void setTelNo(String telNo) {
         this.telNo = telNo;
+    }
+
+    public String getBase64Image()
+    {
+        return base64Image;
+    }
+
+    public void setBase64Image(String base64Image)
+    {
+        this.base64Image = base64Image;
     }
 }

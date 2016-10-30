@@ -1,5 +1,6 @@
 package com.hackmanchester.backend.repo;
 
+import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.model.User;
 
 import java.util.List;
@@ -13,6 +14,9 @@ public interface UserRepo
     User addUser(User user);
     User getUser(int id);
     List<User> getAllUsers();
-    void deletUser(int id);
+    void deleteUser(int id);
     void updateUser(User user);
+    void addUserInterest(int userID, Interest interest);
+    List<Interest> getUsersInterests(int id);
+    List<User> getUsersWithSimilarInterests(int id);
 }

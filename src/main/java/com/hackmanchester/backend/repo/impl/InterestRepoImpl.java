@@ -5,6 +5,8 @@ import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.repo.InterestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +20,7 @@ import javax.sql.DataSource;
 /**
  * Created by ben on 29/10/16.
  */
+//@Repository("interestRepo")
 public class InterestRepoImpl implements InterestRepo {
 
     private DataSource dataSource;
@@ -27,7 +30,7 @@ public class InterestRepoImpl implements InterestRepo {
         this.dataSource = dataSource;
     }
 
-
+    @Transactional
     public int insert(Interest interest) {
 
         int id = 0;
@@ -58,6 +61,7 @@ public class InterestRepoImpl implements InterestRepo {
 
     }
 
+    @Transactional
     public Interest getInterest(int id) {
 
         Interest intr = null;
@@ -94,6 +98,7 @@ public class InterestRepoImpl implements InterestRepo {
         return intr;
     }
 
+    @Transactional
     public List<Interest> getAllInterest() {
 
         List<Interest> intrList = new ArrayList<Interest>();
@@ -128,6 +133,7 @@ public class InterestRepoImpl implements InterestRepo {
         return intrList;
     }
 
+    @Transactional
     public void deleteInterest(int id) {
 
         Connection conn = null;
@@ -152,6 +158,7 @@ public class InterestRepoImpl implements InterestRepo {
         }
     }
 
+    @Transactional
     public void updateInterest(Interest interest) {
 
         Connection conn = null;
