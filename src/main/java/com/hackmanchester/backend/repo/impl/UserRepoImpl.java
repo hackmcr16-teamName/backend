@@ -4,6 +4,8 @@ package com.hackmanchester.backend.repo.impl;
 import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.model.User;
 import com.hackmanchester.backend.repo.UserRepo;
+import org.springframework.stereotype.Repository;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +17,7 @@ import javax.sql.DataSource;
 /**
  * Created by ben on 30/10/16.
  */
+@Repository("userRepo")
 public class UserRepoImpl implements UserRepo {
 
     private DataSource dataSource;
