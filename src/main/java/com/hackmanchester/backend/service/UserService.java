@@ -1,18 +1,17 @@
-package com.hackmanchester.backend.repo;
+package com.hackmanchester.backend.service;
 
 import com.hackmanchester.backend.model.User;
 
 import java.util.List;
 
 /**
- * Created by ben on 29/10/16.
+ * Created by tony on 30/10/2016.
  */
-public interface UserRepo
+public interface UserService
 {
-
-    User addUser(User user);
     User getUser(int id);
     List<User> getAllUsers();
-    void deletUser(int id);
+    User addUser(User user);
     void updateUser(User user);
+    void deleteUser(int id);
 }

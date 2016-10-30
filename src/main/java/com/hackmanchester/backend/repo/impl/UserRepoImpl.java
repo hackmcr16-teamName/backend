@@ -1,5 +1,6 @@
 package com.hackmanchester.backend.repo.impl;
 
+
 import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.model.User;
 import com.hackmanchester.backend.repo.UserRepo;
@@ -22,7 +23,7 @@ public class UserRepoImpl implements UserRepo {
         this.dataSource = dataSource;
     }
 
-    public int insert(User user) {
+    public User addUser(User user) {
         int id = 0;
         Connection conn = null;
 
@@ -38,12 +39,13 @@ public class UserRepoImpl implements UserRepo {
             ps.setString(3,user.getTelNo());
             id = ps.executeUpdate();
 
+
         }catch (SQLException e) {
             e.printStackTrace();
         }
 
-
-        return id;
+        user.setUserID(id);
+        return user;
 
     }
 
@@ -93,18 +95,18 @@ public class UserRepoImpl implements UserRepo {
 
     }
 
-    public List<Interest> getUserInterests() {
+    public List<Interest> getUserInterests()
+    {
 
         List<Interest> intrList = new ArrayList<Interest>();
 
         Connection conn = null;
 
         String sql = "SELECT tblInterests.idInterest tblInterests.name " +
-                     "FROM tblInterests " +
-                     "INNER JOIN tblUserInterests ON tblInterests.idInterest = tblUserInterest.idInterest " +
-                     "INNER JOIN tblUserInterests ON tblUsers.idUsers = tblUserInterest.idUser";
+                "FROM tblInterests " +
+                "INNER JOIN tblUserInterests ON tblInterests.idInterest = tblUserInterest.idInterest " +
+                "INNER JOIN tblUserInterests ON tblUsers.idUsers = tblUserInterest.idUser";
 
         return intrList;
-
     }
 }
