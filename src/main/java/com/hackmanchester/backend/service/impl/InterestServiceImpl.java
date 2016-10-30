@@ -4,12 +4,15 @@ import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.repo.InterestRepo;
 import com.hackmanchester.backend.service.InterestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by tony on 29/10/2016.
  */
+@Service("interestService")
 public class InterestServiceImpl implements InterestService
 {
     @Autowired

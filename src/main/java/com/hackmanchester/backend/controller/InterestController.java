@@ -3,10 +3,7 @@ package com.hackmanchester.backend.controller;
 import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.service.InterestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,13 +18,14 @@ public class InterestController
 
     public InterestController() {}
 
-    @RequestMapping(value = "/Interest", method = RequestMethod.GET)
+    @CrossOrigin
+    @RequestMapping(value = "/interests", method = RequestMethod.GET)
     public List<Interest> getInterests()
     {
         return interestService.getAllInterest();
     }
 
-    @RequestMapping(value = "/Interest", method = RequestMethod.POST)
+    @RequestMapping(value = "/interests", method = RequestMethod.POST)
     public void addInterest(@RequestBody Interest interest)
     {
         if(interest == null)
@@ -36,7 +34,7 @@ public class InterestController
         interestService.insert(interest);
     }
 
-    @RequestMapping(value = "/Interest", method = RequestMethod.PUT)
+    @RequestMapping(value = "/interests", method = RequestMethod.PUT)
     public void updateInterest(@RequestBody Interest interest)
     {
         if(interest == null)
@@ -45,7 +43,7 @@ public class InterestController
         interestService.updateInterest(interest);
     }
 
-    @RequestMapping(value = "/Interest", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/interests", method = RequestMethod.DELETE)
     public void deleteInterest(@RequestBody Interest interest)
     {
         if(interest == null)

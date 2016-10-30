@@ -3,10 +3,14 @@ package com.hackmanchester.backend.repo.impl;
 
 import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.repo.InterestRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
@@ -18,9 +22,11 @@ public class InterestRepoImpl implements InterestRepo {
 
     private DataSource dataSource;
 
-    public void setDataSource(DataSource dataSource) {
+    public void setDataSource(DataSource dataSource)
+    {
         this.dataSource = dataSource;
     }
+
 
     public int insert(Interest interest) {
 
@@ -56,7 +62,7 @@ public class InterestRepoImpl implements InterestRepo {
 
         Interest intr = null;
 
-        String sql = "SELECT *" +
+        String sql = "SELECT * " +
                 "FROM tblInterest WHERE idInterest = ?";
 
         Connection conn = null;
@@ -90,9 +96,9 @@ public class InterestRepoImpl implements InterestRepo {
 
     public List<Interest> getAllInterest() {
 
-        List<Interest> intrList = null;
+        List<Interest> intrList = new ArrayList<Interest>();
 
-        String sql = "SELECT *" +
+        String sql = "SELECT * " +
                      "FROM tblInterest";
 
         Connection conn = null;
@@ -122,12 +128,11 @@ public class InterestRepoImpl implements InterestRepo {
         return intrList;
     }
 
-        public void deleteInterest(int id) {
+    public void deleteInterest(int id) {
 
-            Connection conn = null;
-            String sql = "DELETE FROM tblInterest " +
-                         "WHERE idInterest = ?";
-
+        Connection conn = null;
+        String sql = "DELETE FROM tblInterest " +
+                     "WHERE idInterest = ?";
         try{
             conn = dataSource.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -145,7 +150,6 @@ public class InterestRepoImpl implements InterestRepo {
                 }
             }
         }
-
     }
 
     public void updateInterest(Interest interest) {
@@ -153,7 +157,7 @@ public class InterestRepoImpl implements InterestRepo {
         Connection conn = null;
         String sql = "UPDATE tblInsert " +
                      "SET name = ?" +
-                     "WHERE idInsert =? ";
+                     "WHERE idInsert = ? ";
 
         try {
             conn = dataSource.getConnection();
@@ -173,7 +177,5 @@ public class InterestRepoImpl implements InterestRepo {
                 }
             }
         }
-
-
     }
 }

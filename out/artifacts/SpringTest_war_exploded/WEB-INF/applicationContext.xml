@@ -4,4 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="interestService" class="com.hackmanchester.backend.service.impl.InterestServiceImpl" />
+    <bean id="interestRepo" class="com.hackmanchester.backend.repo.impl.InterestRepoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://192.168.43.3:3306/my_db"/>
+        <property name="username" value="tony"/>
+        <property name="password" value="test"/>
+    </bean>
 </beans>
