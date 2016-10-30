@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
@@ -90,9 +91,9 @@ public class InterestRepoImpl implements InterestRepo {
 
     public List<Interest> getAllInterest() {
 
-        List<Interest> intrList = null;
+        List<Interest> intrList = new ArrayList<Interest>();
 
-        String sql = "SELECT *" +
+        String sql = "SELECT * " +
                      "FROM tblInterest";
 
         Connection conn = null;
@@ -122,7 +123,7 @@ public class InterestRepoImpl implements InterestRepo {
         return intrList;
     }
 
-        public void deleteInterest(int id) {
+    public void deleteInterest(int id) {
 
             Connection conn = null;
             String sql = "DELETE FROM tblInterest " +
@@ -162,6 +163,8 @@ public class InterestRepoImpl implements InterestRepo {
             ps.setInt(2,interest.getInterestID());
             ps.executeQuery();
 
+            ps.close();
+
         } catch(SQLException e) {
             e.printStackTrace();
         } finally {
@@ -173,7 +176,6 @@ public class InterestRepoImpl implements InterestRepo {
                 }
             }
         }
-
 
     }
 }
