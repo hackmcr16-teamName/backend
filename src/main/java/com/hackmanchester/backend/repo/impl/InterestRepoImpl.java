@@ -166,6 +166,8 @@ public class InterestRepoImpl implements InterestRepo {
             ps.setInt(2,interest.getInterestID());
             ps.executeQuery();
 
+            ps.close();
+
         } catch(SQLException e) {
             e.printStackTrace();
         } finally {

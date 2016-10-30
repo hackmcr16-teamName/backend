@@ -1,5 +1,7 @@
 package com.hackmanchester.backend.model;
 
+import java.util.List;
+
 /**
  * Created by ben on 29/10/16.
  */
@@ -7,6 +9,7 @@ public class User {
 
     private int userID, branchID;
     private String firstName, surname, telNo;
+    private List<Interest> interestList;
 
     public User(int userID, String firstName, String surname, String telNo, int branchID) {
         this.userID = userID;
@@ -52,6 +55,14 @@ public class User {
 
     public String getTelNo() {
         return telNo;
+    }
+
+    public List<Interest> getInterestList() {
+        return interestList;
+    }
+
+    public void setInterestList(List<Interest> interestList) {
+        this.interestList = interestList;
     }
 
     public void setTelNo(String telNo) {
