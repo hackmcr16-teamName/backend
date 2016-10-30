@@ -1,5 +1,6 @@
 package com.hackmanchester.backend.repo.impl;
 
+import com.hackmanchester.backend.model.Interest;
 import com.hackmanchester.backend.model.User;
 import com.hackmanchester.backend.repo.UserRepo;
 import java.sql.Connection;
@@ -89,6 +90,21 @@ public class UserRepoImpl implements UserRepo {
     }
 
     public void updateUser(User user) {
+
+    }
+
+    public List<Interest> getUserInterests() {
+
+        List<Interest> intrList = new ArrayList<Interest>();
+
+        Connection conn = null;
+
+        String sql = "SELECT tblInterests.idInterest tblInterests.name " +
+                     "FROM tblInterests " +
+                     "INNER JOIN tblUserInterests ON tblInterests.idInterest = tblUserInterest.idInterest " +
+                     "INNER JOIN tblUserInterests ON tblUsers.idUsers = tblUserInterest.idUser";
+
+        return intrList;
 
     }
 }
